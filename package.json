@@ -1,0 +1,11 @@
+{
+  "name": "linebot",
+  "version": "1.0.0",
+  "description": "linebot example",
+  "main": "app.js",
+  "scripts": {
+    "test": "deamon"
+  },
+  "author": "hariluk.f",
+  "license": "ISC"
+}
