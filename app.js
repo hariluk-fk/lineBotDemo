@@ -190,12 +190,13 @@ function handleMessageEvent(event) {
                     ]
                 }
             }
-    } else {
-        var msg = {
-            "type": "text",
-            "text": String(eventText)
-         }
-    }
+    } 
+    // else {
+    //     var msg = {
+    //         "type": "text",
+    //         "text": String(eventText)
+    //      }
+    // }
 
     if(msg.text === ''){
         postToDialogflow(requestTxt);
