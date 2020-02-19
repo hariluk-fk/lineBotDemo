@@ -148,29 +148,29 @@ mongodb.connect(
 function getAllPlayer(){
     var playerListTxt = '';
     var playerList = [];
-    playerList = player.find();
-    if(playerList.length){
+    // playerList = player.find();
+    // if(playerList.length){
         // var msg = 
-        for(var i = 0; i < playerList.length; i++){
-            var playerData = new player(playerList[i]);
-            var msg_tmp = {
-                "thumbnailImageUrl": playerData.picUrl,
-                "title": playerData.displayName,
-                "text": playerData.position,
-                "actions": [
-                    {
-                        "type": "postback",
-                        "label": "เลือก",
-                        "data": "action=add&itemid=222"
-                    },
-                    {
-                        "type": "uri",
-                        "label": "รายละเอียด",
-                        "uri": playerData.facebookUrl;
-                    }
-                ]
-            }
-        }
+        // for(var i = 0; i < playerList.length; i++){
+        //     var playerData = new player(playerList[i]);
+        //     var msg_tmp = {
+        //         "thumbnailImageUrl": playerData.picUrl,
+        //         "title": playerData.displayName,
+        //         "text": playerData.position,
+        //         "actions": [
+        //             {
+        //                 "type": "postback",
+        //                 "label": "เลือก",
+        //                 "data": "action=add&itemid=222"
+        //             },
+        //             {
+        //                 "type": "uri",
+        //                 "label": "รายละเอียด",
+        //                 "uri": playerData.facebookUrl;
+        //             }
+        //         ]
+        //     }
+        // }
         var msg = {
             "type": "template",
                 "altText": "this is a carousel template",
@@ -248,7 +248,7 @@ function getAllPlayer(){
                     ]
                 }
             }
-    }
+    // }
 
     return playerListTxt;
 }
