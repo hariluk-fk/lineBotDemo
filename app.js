@@ -4,7 +4,6 @@ const request = require('request');
 const line = require('@line/bot-sdk');
 const mongodb = require('mongoose');
 require('dotenv/config');
-const googleSheetService = require('./service/googleSheetService');
 
 const config = {
   channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
