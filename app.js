@@ -112,64 +112,7 @@ function handleMessageEvent(event) {
                 String(eventText).includes('lineup') || 
                 String(eventText).includes('ซอยเก้า') ||
                 String(eventText).includes('S9')) {
-        msg = getAllPlayer();
-    }
-
-    if(msg.text === ''){
-        postToDialogflow(requestTxt);
-    }else{
-        return client.replyMessage(event.replyToken, msg);
-    }
-
-    
-}
-
-const postToDialogflow = req => {
-    req.headers.host = process.env.DIALOGFLOW_HOST
-    // req.headers.host = "bots.dialogflow.com";
-
-    return request.post({
-      uri: process.env.DIALOGFLOW_URL,
-    //   uri: "https://bots.dialogflow.com/line/8f692f26-1b4a-422e-9234-40d7912cc47a/webhook",
-      headers: req.headers,
-      body: JSON.stringify(req.body)
-    });
-  };
-
-mongodb.connect(
-    process.env.DB_CONNECTION, 
-    { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false },() => {})
-    .then(() => console.log('Database is already connected!'))
-    .catch(err => {
-        console.log({message: err});
-    });
-
-function getAllPlayer(){
-    var playerListTxt = '';
-    var playerList = [];
-    // playerList = player.find();
-    // if(playerList.length){
-        // var msg = 
-        // for(var i = 0; i < playerList.length; i++){
-        //     var playerData = new player(playerList[i]);
-        //     var msg_tmp = {
-        //         "thumbnailImageUrl": playerData.picUrl,
-        //         "title": playerData.displayName,
-        //         "text": playerData.position,
-        //         "actions": [
-        //             {
-        //                 "type": "postback",
-        //                 "label": "เลือก",
-        //                 "data": "action=add&itemid=222"
-        //             },
-        //             {
-        //                 "type": "uri",
-        //                 "label": "รายละเอียด",
-        //                 "uri": playerData.facebookUrl;
-        //             }
-        //         ]
-        //     }
-        // }
+        // msg = getAllPlayer();
         var msg = {
             "type": "template",
                 "altText": "this is a carousel template",
@@ -247,6 +190,64 @@ function getAllPlayer(){
                     ]
                 }
             }
+    }
+
+    if(msg.text === ''){
+        postToDialogflow(requestTxt);
+    }else{
+        return client.replyMessage(event.replyToken, msg);
+    }
+
+    
+}
+
+const postToDialogflow = req => {
+    req.headers.host = process.env.DIALOGFLOW_HOST
+    // req.headers.host = "bots.dialogflow.com";
+
+    return request.post({
+      uri: process.env.DIALOGFLOW_URL,
+    //   uri: "https://bots.dialogflow.com/line/8f692f26-1b4a-422e-9234-40d7912cc47a/webhook",
+      headers: req.headers,
+      body: JSON.stringify(req.body)
+    });
+  };
+
+mongodb.connect(
+    process.env.DB_CONNECTION, 
+    { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false },() => {})
+    .then(() => console.log('Database is already connected!'))
+    .catch(err => {
+        console.log({message: err});
+    });
+
+function getAllPlayer(){
+    var playerListTxt = '';
+    var playerList = [];
+    // playerList = player.find();
+    // if(playerList.length){
+        // var msg = 
+        // for(var i = 0; i < playerList.length; i++){
+        //     var playerData = new player(playerList[i]);
+        //     var msg_tmp = {
+        //         "thumbnailImageUrl": playerData.picUrl,
+        //         "title": playerData.displayName,
+        //         "text": playerData.position,
+        //         "actions": [
+        //             {
+        //                 "type": "postback",
+        //                 "label": "เลือก",
+        //                 "data": "action=add&itemid=222"
+        //             },
+        //             {
+        //                 "type": "uri",
+        //                 "label": "รายละเอียด",
+        //                 "uri": playerData.facebookUrl;
+        //             }
+        //         ]
+        //     }
+        // }
+        
     // }
 
     return playerListTxt;
