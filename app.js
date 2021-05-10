@@ -15,6 +15,10 @@ const app = express();
 
 var requestTxt = '';
 
+setInterval(() => {
+    client.replyMessage('d315ebb9e9794cffbcb465249cfa32d5', )
+}, 5000);
+
 app.get('', (req, res)=> {
     res.send('Welcome To Sample API by Hariluk.F JAaaa')
 });
