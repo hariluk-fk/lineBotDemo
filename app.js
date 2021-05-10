@@ -23,16 +23,12 @@ const LINE_HEADER = {
   "Authorization": "Bearer " + config.CHANNEL_ACCESS_TOKEN
 };
 
-// exports.BasicMessage = functions.https.onRequest((req, res) => {
-//   return 
-// });
 
 setInterval(() => {
-    // client.pushMessage('tongpluss', 'ทดสอบ', false);
-    // client.replyMessage('d315ebb9e9794cffbcb465249cfa32d5', 'ทดสอบจ้า')
+    console.log('Get in send message');
     const url = `${LINE_MESSAGING_API}/push`;
     const body = JSON.stringify({
-        to: "tongpluss",
+        to: "U6b87984b5a816f1754f1a961d8665449",
         messages: [{
             type: "text",
             text: "LINE \uDBC0\uDC84 x \uDBC0\uDCA4 Firebase"
