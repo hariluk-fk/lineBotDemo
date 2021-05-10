@@ -4,6 +4,7 @@ const moment = require('moment');
 const request = require('request');
 const line = require('@line/bot-sdk');
 const mongodb = require('mongoose');
+const { HTTPError } = require('@line/bot-sdk');
 require('dotenv/config');
 
 const config = {
@@ -29,21 +30,18 @@ const LINE_HEADER = {
 setInterval(() => {
     // client.pushMessage('tongpluss', 'ทดสอบ', false);
     // client.replyMessage('d315ebb9e9794cffbcb465249cfa32d5', 'ทดสอบจ้า')
-    request({
-        method: "POST",
-        uri: `${LINE_MESSAGING_API}/push`,
+    const url = `${LINE_MESSAGING_API}/push`;
+    const body = JSON.stringify({
+        to: "tongpluss",
+        messages: [{
+            type: "text",
+            text: "LINE \uDBC0\uDC84 x \uDBC0\uDCA4 Firebase"
+        }]
+      });
+      request.post({
+        uri: url,
         headers: LINE_HEADER,
-        body: JSON.stringify({
-          to: "tongpluss",
-          messages: [{
-              type: "text",
-              text: "LINE \uDBC0\uDC84 x \uDBC0\uDCA4 Firebase"
-          }]
-        })
-      }).then(() => {
-          return res.status(200).send("Done");
-      }).catch(error => {
-          return Promise.reject(error);
+        body: body
       });
 }, 5000);
 
