@@ -76,7 +76,7 @@ function getCurChange() {
             if (!error && res.statusCode == 200) {
                 console.log(JSON.stringify(body))
                 const url = LINE_MESSAGING_API
-                const body = JSON.stringify({
+                const tmp = JSON.stringify({
                     "to": "U6b87984b5a816f1754f1a961d8665449",
                     "messages": [
                         {
@@ -88,7 +88,7 @@ function getCurChange() {
                 request.post({
                     uri: url,
                     headers: LINE_HEADER,
-                    body: body
+                    body: tmp
                 });
             } else {
                 console.log(JOSN.stringify(err))
