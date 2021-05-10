@@ -15,6 +15,10 @@ const app = express();
 
 var requestTxt = '';
 
+app.post('', line.middleware(config), (req, res) => {
+    res.sendStatus(200)
+});
+
 app.post('/callback', line.middleware(config), (req, res) => {
     console.log(req.headers);
     requestTxt = req;
@@ -191,12 +195,6 @@ function handleMessageEvent(event) {
                 }
             }
     } 
-    // else {
-    //     var msg = {
-    //         "type": "text",
-    //         "text": String(eventText)
-    //      }
-    // }
 
     if(msg.text === ''){
         postToDialogflow(requestTxt);
@@ -226,7 +224,7 @@ mongodb.connect(
     .catch(err => {
         console.log({message: err});
     });
-    
+
 // listen on port
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
