@@ -72,7 +72,7 @@ function getCurChange() {
         request.get(options, function(err, res, body) {
             // let json = JSON.parse(body);
             // console.log(json);
-            if (!error && res.statusCode == 200) {
+            if (!err && res.statusCode == 200) {
                 console.log(JSON.stringify(body))
                 const url = LINE_MESSAGING_API
                 const tmp = JSON.stringify({
