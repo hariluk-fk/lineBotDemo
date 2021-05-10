@@ -17,7 +17,7 @@ const app = express();
 
 var requestTxt = '';
 
-const LINE_MESSAGING_API = "https://api.line.me/v2/bot/message";
+const LINE_MESSAGING_API = "https://api.line.me/v2/bot/message/push";
 const LINE_HEADER = {
   "Content-Type": "application/json",
   "Authorization": "Bearer " + config.CHANNEL_ACCESS_TOKEN
@@ -26,7 +26,7 @@ const LINE_HEADER = {
 
 setInterval(() => {
     console.log('Get in send message');
-    const url = `${LINE_MESSAGING_API}/push`;
+    const url = LINE_MESSAGING_API
     const body = JSON.stringify({
         to: "U6b87984b5a816f1754f1a961d8665449",
         messages: [{
@@ -34,7 +34,7 @@ setInterval(() => {
             text: "LINE \uDBC0\uDC84 x \uDBC0\uDCA4 Firebase"
         }]
       });
-      request.post({
+    request.post({
         uri: url,
         headers: LINE_HEADER,
         body: body
