@@ -3,7 +3,6 @@ const express = require('express');
 const moment = require('moment');
 const request = require('request');
 const line = require('@line/bot-sdk');
-const rp = require('request-promise');
 const mongodb = require('mongoose');
 const { HTTPError } = require('@line/bot-sdk');
 require('dotenv/config');
