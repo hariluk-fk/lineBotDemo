@@ -94,7 +94,6 @@ function getCurChange() {
                 console.log(JOSN.stringify(err))
             }
         })
-)
         
 }
 
