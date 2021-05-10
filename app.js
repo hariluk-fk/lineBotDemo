@@ -17,7 +17,7 @@ const app = express();
 var requestTxt = '';
 
 setInterval(() => {
-    const bkk = moment().clone().tz('Asia/Bangkok')
+    const bkk = moment()
     const tm = bkk.format('LTS')
     client.replyMessage('d315ebb9e9794cffbcb465249cfa32d5', tm)
 }, 5000);
