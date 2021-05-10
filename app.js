@@ -41,7 +41,7 @@ setInterval(() => {
         headers: LINE_HEADER,
         body: body
       });
-}, 5000);
+}, 60000);
 
 app.get('', (req, res)=> {
     res.send('Welcome To Sample API by Hariluk.F JAaaa')
