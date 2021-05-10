@@ -57,8 +57,7 @@ function handleEvent(event) {
 
 function getCurChange() {
     var apikey = {
-        key:'8b10123a-f4b0-4a5d-bef2-81b168e14cc1',
-        url: 'https://pro-api.coinmarketcap.com/v1/global-metrics/quotes/latest?CMC_PRO_API_KEY=' + apikey.key
+        url: 'https://pro-api.coinmarketcap.com/v1/global-metrics/quotes/latest?CMC_PRO_API_KEY=8b10123a-f4b0-4a5d-bef2-81b168e14cc1'
     }
 
     const options = {
