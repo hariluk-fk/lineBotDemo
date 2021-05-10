@@ -3,6 +3,7 @@ const express = require('express');
 const moment = require('moment');
 const request = require('request');
 const line = require('@line/bot-sdk');
+const rp = require('request-promise');
 const mongodb = require('mongoose');
 const { HTTPError } = require('@line/bot-sdk');
 require('dotenv/config');
@@ -26,21 +27,7 @@ const LINE_HEADER = {
 
 setInterval(() => {
     console.log('Get in send message');
-    const url = LINE_MESSAGING_API
-    const body = JSON.stringify({
-        "to": "U6b87984b5a816f1754f1a961d8665449",
-        "messages": [
-            {
-                "type": "text",
-                "text": "สวัสดีครับ"
-            }
-        ]
-    });
-    request.post({
-        uri: url,
-        headers: LINE_HEADER,
-        body: body
-      });
+    getCurChange();
 }, 60000);
 
 app.get('', (req, res)=> {
@@ -67,6 +54,33 @@ function handleEvent(event) {
     } else {
         return Promise.resolve(null);
     }
+}
+
+function getCurChange() {
+    var apikey = {
+        key:'8b10123a-f4b0-4a5d-bef2-81b168e14cc1'
+    }
+        
+    request.get('https://pro-api.coinmarketcap.com/v1/global-metrics/quotes/latest?CMC_PRO_API_KEY=' + apikey.key).then((success) => {
+        console.log(JSON.stringify(success))
+        const url = LINE_MESSAGING_API
+        const body = JSON.stringify({
+            "to": "U6b87984b5a816f1754f1a961d8665449",
+            "messages": [
+                {
+                    "type": "text",
+                    "text": JSON.stringify(success)
+                }
+            ]
+        });
+        request.post({
+            uri: url,
+            headers: LINE_HEADER,
+            body: body
+        });
+    }, err => {
+        console.log(JSON.stringify(err))
+    })
 }
 
 function handleMessageEvent(event) {
