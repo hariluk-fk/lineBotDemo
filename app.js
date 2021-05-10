@@ -15,8 +15,8 @@ const app = express();
 
 var requestTxt = '';
 
-app.post('', line.middleware(config), (req, res) => {
-    res.sendStatus(200)
+app.post('/', line.middleware(config), (req, res) => {
+    res.send('Welcome To Sample API by Hariluk.F JAaaa')
 });
 
 app.post('/callback', line.middleware(config), (req, res) => {
