@@ -1,5 +1,6 @@
 'use strict';
 const express = require('express');
+const moment = require('moment');
 const request = require('request');
 const line = require('@line/bot-sdk');
 const mongodb = require('mongoose');
@@ -16,7 +17,9 @@ const app = express();
 var requestTxt = '';
 
 setInterval(() => {
-    client.replyMessage('d315ebb9e9794cffbcb465249cfa32d5', )
+    const bkk = moment().clone().tz('Asia/Bangkok')
+    const tm = bkk.format('LTS')
+    client.replyMessage('d315ebb9e9794cffbcb465249cfa32d5', tm)
 }, 5000);
 
 app.get('', (req, res)=> {
