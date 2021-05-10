@@ -20,7 +20,7 @@ var requestTxt = '';
 const LINE_MESSAGING_API = "https://api.line.me/v2/bot/message/push";
 const LINE_HEADER = {
   "Content-Type": "application/json",
-  "Authorization": "Bearer " + config.CHANNEL_ACCESS_TOKEN
+  "Authorization": "Bearer 47vMkoc9aZoUO1xG4kC68L/L9CLsCt3U7j3MHhI5o0siLwCVyxysSJiBX+1Ufef6XufFAvGEHSWjdqS+Bdu+mXgSQ6IOsGKtn6nUFQoackwB/5x9kwb03dMBlqipcbi2x1cOe87rLa8LBHNp2O9bYAdB04t89/1O/w1cDnyilFU="
 };
 
 
@@ -28,12 +28,14 @@ setInterval(() => {
     console.log('Get in send message');
     const url = LINE_MESSAGING_API
     const body = JSON.stringify({
-        to: "U6b87984b5a816f1754f1a961d8665449",
-        messages: [{
-            type: "text",
-            text: "LINE \uDBC0\uDC84 x \uDBC0\uDCA4 Firebase"
-        }]
-      });
+        "to": "U6b87984b5a816f1754f1a961d8665449",
+        "messages": [
+            {
+                "type": "text",
+                "text": "สวัสดีครับ"
+            }
+        ]
+    });
     request.post({
         uri: url,
         headers: LINE_HEADER,
