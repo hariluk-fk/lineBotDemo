@@ -57,29 +57,45 @@ function handleEvent(event) {
 
 function getCurChange() {
     var apikey = {
-        key:'8b10123a-f4b0-4a5d-bef2-81b168e14cc1'
+        key:'8b10123a-f4b0-4a5d-bef2-81b168e14cc1',
+        url: 'https://pro-api.coinmarketcap.com/v1/global-metrics/quotes/latest?CMC_PRO_API_KEY=' + apikey.key
     }
+
+    const options = {
+        url: apikey.url,
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+        }
+    };
+
+
+        request.get(options, function(err, res, body) {
+            // let json = JSON.parse(body);
+            // console.log(json);
+            if (!error && res.statusCode == 200) {
+                console.log(JSON.stringify(body))
+                const url = LINE_MESSAGING_API
+                const body = JSON.stringify({
+                    "to": "U6b87984b5a816f1754f1a961d8665449",
+                    "messages": [
+                        {
+                            "type": "text",
+                            "text": JSON.stringify(body)
+                        }
+                    ]
+                });
+                request.post({
+                    uri: url,
+                    headers: LINE_HEADER,
+                    body: body
+                });
+            } else {
+                console.log(JOSN.stringify(err))
+            }
+        })
+)
         
-    request.get('https://pro-api.coinmarketcap.com/v1/global-metrics/quotes/latest?CMC_PRO_API_KEY=' + apikey.key).then((success) => {
-        console.log(JSON.stringify(success))
-        const url = LINE_MESSAGING_API
-        const body = JSON.stringify({
-            "to": "U6b87984b5a816f1754f1a961d8665449",
-            "messages": [
-                {
-                    "type": "text",
-                    "text": JSON.stringify(success)
-                }
-            ]
-        });
-        request.post({
-            uri: url,
-            headers: LINE_HEADER,
-            body: body
-        });
-    }, err => {
-        console.log(JSON.stringify(err))
-    })
 }
 
 function handleMessageEvent(event) {
