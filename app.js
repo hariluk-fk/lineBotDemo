@@ -27,7 +27,7 @@ const LINE_HEADER = {
 setInterval(() => {
     console.log('Get in send message');
     getCurChange();
-}, 60000);
+}, 600000);
 
 app.get('', (req, res)=> {
     res.send('Welcome To Sample API by Hariluk.F JAaaa')
