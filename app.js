@@ -15,7 +15,7 @@ const app = express();
 
 var requestTxt = '';
 
-app.post('/', line.middleware(config), (req, res) => {
+app.get('', (req, res)=> {
     res.send('Welcome To Sample API by Hariluk.F JAaaa')
 });
 
