@@ -48,6 +48,7 @@ function handleMessageEvent(event) {
     };
 
     var eventText = event.message.text.toLowerCase();
+    console.log(eventText);
 
     if (eventText === 'image') {
         msg = {
