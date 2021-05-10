@@ -17,9 +17,7 @@ const app = express();
 var requestTxt = '';
 
 setInterval(() => {
-    const bkk = moment()
-    const tm = bkk.format('LTS')
-    client.replyMessage('d315ebb9e9794cffbcb465249cfa32d5', tm)
+    client.replyMessage('d315ebb9e9794cffbcb465249cfa32d5', 'ทดสอบจ้า')
 }, 5000);
 
 app.get('', (req, res)=> {
