@@ -226,39 +226,8 @@ mongodb.connect(
     .catch(err => {
         console.log({message: err});
     });
-
-function getAllPlayer(){
-    var playerListTxt = '';
-    var playerList = [];
-    // playerList = player.find();
-    // if(playerList.length){
-        // var msg = 
-        // for(var i = 0; i < playerList.length; i++){
-        //     var playerData = new player(playerList[i]);
-        //     var msg_tmp = {
-        //         "thumbnailImageUrl": playerData.picUrl,
-        //         "title": playerData.displayName,
-        //         "text": playerData.position,
-        //         "actions": [
-        //             {
-        //                 "type": "postback",
-        //                 "label": "เลือก",
-        //                 "data": "action=add&itemid=222"
-        //             },
-        //             {
-        //                 "type": "uri",
-        //                 "label": "รายละเอียด",
-        //                 "uri": playerData.facebookUrl;
-        //             }
-        //         ]
-        //     }
-        // }
-        
-    // }
-
-    return playerListTxt;
-}
-    // listen on port
+    
+// listen on port
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
   //console.log(`listening on ${port}`);
